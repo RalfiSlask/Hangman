@@ -620,7 +620,24 @@ h1 {
 }
 
 .taken {
+  
+}
 
+.startmusic {
+  font-family: Dosis;
+  background-color: gray;
+  color: white;
+  height: 75px;
+  width: 125px;
+  border-radius: 10%;
+  margin-top: 50px;
+  font-size: 18px;
+  font-weight: 500;
+}
+
+.startmusic:hover {
+  cursor: pointer;
+  color: black;
 }
 
 @media only screen and (max-width: 414px) {
@@ -807,7 +824,3 @@ h1 {
 
 }
 
-
-@media only screen and (max-width: 1024px) {
-  
-}

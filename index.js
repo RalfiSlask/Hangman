@@ -17,6 +17,7 @@ const armL = document.querySelector(".arm-left");
 const armR = document.querySelector(".arm-right");
 const mainB = document.querySelector(".main-body");
 const hangparts = document.querySelectorAll(".hang-part");
+const startmusic = document.querySelector(".startmusic")
 
 // music and exit buttons //
 
@@ -40,7 +41,7 @@ win.volume = 0.1;
 
 // Game has ended variable //
 
-let gameplaying = true;
+let isGamePlaying = true;
 
 // setting up counters //
 
@@ -68,10 +69,20 @@ const generateArray = () => {
 
 generateArray();
 
-window.onload = () => {
-    setTimeout(BGmusic.play(), 2000)
-    BGmusic.loop = true;
+const startMusic = () => {
+    startmusic.onclick = () => {
+        BGmusic.play();
+        BGmusic.loop = true;
+    }
 }
+
+
+
+document.addEventListener("DOMContentLoaded", () => {
+    startMusic();
+    addingGuesses();
+})
+
 
 // adding elements for each letter in the random word //
 
@@ -83,7 +94,7 @@ const addingGuesses = () => {
     } 
 }
 
-addingGuesses();
+
 
 let guesses = document.querySelectorAll(".guess");
 
@@ -91,7 +102,7 @@ let guesses = document.querySelectorAll(".guess");
 
 for(let y = 0; y < letters.length; y++) {
     letters[y].onclick = () => {
-        if(letters[y].classList.contains("taken") == false && gameplaying == true) {
+        if(letters[y].classList.contains("taken") == false && isGamePlaying == true) {
             for(let i = 0; i < randArray.length; i++) {
                 if(randArray[i] == letters[y].innerHTML) {
                     letters[y].classList.add("taken");
@@ -120,7 +131,7 @@ for(let y = 0; y < letters.length; y++) {
                 winning.play();
                 mouth.classList.remove("mouth-sad");
                 mouth.classList.add("mouth-smiling");
-                gameplaying = false;
+                isGamePlaying = false;
             }
     
             // making the hangman visible after clicking on the wrong letters //
@@ -154,7 +165,7 @@ for(let y = 0; y < letters.length; y++) {
                 button.classList.remove("hidden");
                 mouth.classList.add("mouth-sad");
                 mouth.classList.remove("mouth-smiling");
-                gameplaying = false;
+                isGamePlaying = false;
             } 
         }
         
@@ -183,7 +194,7 @@ button.onclick = () => {
     count = 0;
     errorCount = 0;
     winCount = 0;
-    gameplaying = true;
+    isGamePlaying = true;
     endtext.classList.add("hidden");
     endtext.classList.remove("end-text");
     button.classList.add("hidden");
