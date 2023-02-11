@@ -28,13 +28,10 @@ let sound_image = document.querySelector(".sound-image");
 
 let BGmusic = new Audio("./Sounds/music.mp3")
 BGmusic.volume = 0.1;
-
 let laugh = new Audio("./Sounds/laugh.mp3");
 laugh.volume = 0.3;
-
 let winning = new Audio("./Sounds/winning.mp3");
 winning.volume = 0.3;
-
 let win = new Audio("./Sounds/win.mp3");
 win.volume = 0.1;
 
@@ -52,7 +49,7 @@ let winCount = 0;
 
 let randNumber = Math.floor(Math.random() * 10);
 let randArray = [];
-let words = ["PHENOMENON", "SNOOKI", "BUFFALO", "IVORY", "VOODOO", "MATRIX", "BIKINI", "BANJO", "PUPPY", "JOGGING"];
+let words = ["PHENOMENON", "ABRUPTLY", "BUFFALO", "IVORY", "VOODOO", "MATRIX", "BIKINI", "BANJO", "PUPPY", "JOGGING", "AXIOM", "ZOMBIE", "STRONGHOLD"];
 let word;
 
 const generateArray = () => {
