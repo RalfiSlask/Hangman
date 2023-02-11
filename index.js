@@ -5,17 +5,17 @@ const guesspanel = document.querySelector(".guesses");
 
 // The hangman variables //
 
-const L = document.querySelector(".L");
-const L2 = document.querySelector(".L2");
-const L3 = document.querySelector(".L3");
+const lowerPole = document.querySelector(".lowerPole");
+const midPole = document.querySelector(".midPole");
+const higherPole = document.querySelector(".higherPole");
 const noose = document.querySelector(".noose");
 const head = document.querySelector(".head");
 const mouth = document.querySelector(".mouth");
-const legL = document.querySelector(".leg-left");
-const legR = document.querySelector(".leg-right");
-const armL = document.querySelector(".arm-left");
-const armR = document.querySelector(".arm-right");
-const mainB = document.querySelector(".main-body");
+const legLeft = document.querySelector(".leg-left");
+const legRightight = document.querySelector(".leg-right");
+const armLeft = document.querySelector(".arm-left");
+const armRight = document.querySelector(".arm-right");
+const mainbody = document.querySelector(".main-body");
 const hangparts = document.querySelectorAll(".hang-part");
 
 // music and exit buttons //
@@ -37,7 +37,7 @@ win.volume = 0.1;
 
 // Game has ended variable //
 
-let gameplaying = true;
+let isGamePlaying = true;
 
 // setting up counters //
 
@@ -88,7 +88,7 @@ let guesses = document.querySelectorAll(".guess");
 
 for(let y = 0; y < letters.length; y++) {
     letters[y].onclick = () => {
-        if(letters[y].classList.contains("taken") == false && gameplaying == true) {
+        if(letters[y].classList.contains("taken") == false && isGamePlaying == true) {
             for(let i = 0; i < randArray.length; i++) {
                 if(randArray[i] == letters[y].innerHTML) {
                     letters[y].classList.add("taken");
@@ -117,29 +117,29 @@ for(let y = 0; y < letters.length; y++) {
                 winning.play();
                 mouth.classList.remove("mouth-sad");
                 mouth.classList.add("mouth-smiling");
-                gameplaying = false;
+                isGamePlaying = false;
             }
     
             // making the hangman visible after clicking on the wrong letters //
     
             if(errorCount == 1) {
-                L.style.visibility = "visible";
-                L2.style.visibility = "visible";
-                L3.style.visibility = "visible";
+                lowerPole.style.visibility = "visible";
+                midPole.style.visibility = "visible";
+                higherPole.style.visibility = "visible";
             } else if(errorCount == 2) {
                noose.style.visibility = "visible"
             } else if(errorCount == 3) {
                 head.style.visibility = "visible"
             } else if(errorCount == 4) {
-                mainB.style.visibility = "visible";
+                mainbody.style.visibility = "visible";
             } else if(errorCount == 5) {
-                armL.style.visibility = "visible";
+                armLeft.style.visibility = "visible";
             } else if(errorCount == 6) {
-                armR.style.visibility = "visible";
+                armRight.style.visibility = "visible";
             } else if(errorCount == 7) {
-                legL.style.visibility = "visible";
+                legLeft.style.visibility = "visible";
             } else if(errorCount == 8) {
-                legR.style.visibility = "visible";
+                legRight.style.visibility = "visible";
     
                 // effects happening when the user loses the game //
     
@@ -151,7 +151,7 @@ for(let y = 0; y < letters.length; y++) {
                 button.classList.remove("hidden");
                 mouth.classList.add("mouth-sad");
                 mouth.classList.remove("mouth-smiling");
-                gameplaying = false;
+                isGamePlaying = false;
             } 
         }
         
@@ -180,7 +180,7 @@ button.onclick = () => {
     count = 0;
     errorCount = 0;
     winCount = 0;
-    gameplaying = true;
+    isGamePlaying = true;
     endtext.classList.add("hidden");
     endtext.classList.remove("end-text");
     button.classList.add("hidden");
