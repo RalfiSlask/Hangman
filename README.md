@@ -14,4 +14,7 @@ Author
 - Frontend Mentor - @RalfiSlask
 - GitHub - https://github.com/RalfiSlask
 
+Live server
+
+- https://ralfislask.github.io/Hangman/
 
