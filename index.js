@@ -5,17 +5,17 @@ const guesspanel = document.querySelector(".guesses");
 
 // The hangman variables //
 
-const lowerPole = document.querySelector(".lowerPole");
-const midPole = document.querySelector(".midPole");
-const higherPole = document.querySelector(".higherPole");
+const L = document.querySelector(".L");
+const L2 = document.querySelector(".L2");
+const L3 = document.querySelector(".L3");
 const noose = document.querySelector(".noose");
 const head = document.querySelector(".head");
 const mouth = document.querySelector(".mouth");
-const legLeft = document.querySelector(".leg-left");
-const legRightight = document.querySelector(".leg-right");
-const armLeft = document.querySelector(".arm-left");
-const armRight = document.querySelector(".arm-right");
-const mainbody = document.querySelector(".main-body");
+const legL = document.querySelector(".leg-left");
+const legR = document.querySelector(".leg-right");
+const armL = document.querySelector(".arm-left");
+const armR = document.querySelector(".arm-right");
+const mainB = document.querySelector(".main-body");
 const hangparts = document.querySelectorAll(".hang-part");
 
 // music and exit buttons //
@@ -28,16 +28,19 @@ let sound_image = document.querySelector(".sound-image");
 
 let BGmusic = new Audio("./Sounds/music.mp3")
 BGmusic.volume = 0.1;
+
 let laugh = new Audio("./Sounds/laugh.mp3");
 laugh.volume = 0.3;
+
 let winning = new Audio("./Sounds/winning.mp3");
 winning.volume = 0.3;
+
 let win = new Audio("./Sounds/win.mp3");
 win.volume = 0.1;
 
 // Game has ended variable //
 
-let isGamePlaying = true;
+let gameplaying = true;
 
 // setting up counters //
 
@@ -49,7 +52,7 @@ let winCount = 0;
 
 let randNumber = Math.floor(Math.random() * 10);
 let randArray = [];
-let words = ["PHENOMENON", "ABRUPTLY", "BUFFALO", "IVORY", "VOODOO", "MATRIX", "BIKINI", "BANJO", "PUPPY", "JOGGING", "AXIOM", "ZOMBIE", "STRONGHOLD"];
+let words = ["PHENOMENON", "SNOOKI", "BUFFALO", "IVORY", "VOODOO", "MATRIX", "BIKINI", "BANJO", "PUPPY", "JOGGING"];
 let word;
 
 const generateArray = () => {
@@ -88,7 +91,7 @@ let guesses = document.querySelectorAll(".guess");
 
 for(let y = 0; y < letters.length; y++) {
     letters[y].onclick = () => {
-        if(letters[y].classList.contains("taken") == false && isGamePlaying == true) {
+        if(letters[y].classList.contains("taken") == false && gameplaying == true) {
             for(let i = 0; i < randArray.length; i++) {
                 if(randArray[i] == letters[y].innerHTML) {
                     letters[y].classList.add("taken");
@@ -117,29 +120,29 @@ for(let y = 0; y < letters.length; y++) {
                 winning.play();
                 mouth.classList.remove("mouth-sad");
                 mouth.classList.add("mouth-smiling");
-                isGamePlaying = false;
+                gameplaying = false;
             }
     
             // making the hangman visible after clicking on the wrong letters //
     
             if(errorCount == 1) {
-                lowerPole.style.visibility = "visible";
-                midPole.style.visibility = "visible";
-                higherPole.style.visibility = "visible";
+                L.style.visibility = "visible";
+                L2.style.visibility = "visible";
+                L3.style.visibility = "visible";
             } else if(errorCount == 2) {
                noose.style.visibility = "visible"
             } else if(errorCount == 3) {
                 head.style.visibility = "visible"
             } else if(errorCount == 4) {
-                mainbody.style.visibility = "visible";
+                mainB.style.visibility = "visible";
             } else if(errorCount == 5) {
-                armLeft.style.visibility = "visible";
+                armL.style.visibility = "visible";
             } else if(errorCount == 6) {
-                armRight.style.visibility = "visible";
+                armR.style.visibility = "visible";
             } else if(errorCount == 7) {
-                legLeft.style.visibility = "visible";
+                legL.style.visibility = "visible";
             } else if(errorCount == 8) {
-                legRight.style.visibility = "visible";
+                legR.style.visibility = "visible";
     
                 // effects happening when the user loses the game //
     
@@ -151,7 +154,7 @@ for(let y = 0; y < letters.length; y++) {
                 button.classList.remove("hidden");
                 mouth.classList.add("mouth-sad");
                 mouth.classList.remove("mouth-smiling");
-                isGamePlaying = false;
+                gameplaying = false;
             } 
         }
         
@@ -180,7 +183,7 @@ button.onclick = () => {
     count = 0;
     errorCount = 0;
     winCount = 0;
-    isGamePlaying = true;
+    gameplaying = true;
     endtext.classList.add("hidden");
     endtext.classList.remove("end-text");
     button.classList.add("hidden");
