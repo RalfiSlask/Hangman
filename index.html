@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="style.css" rel="stylesheet">
+    <title>Hangman</title>
+</head>
+<body>
+    <div class="outer-rim">
+    <div class="container">
+        <section class="leftsection-letters">
+            <div class="letter">A</div>
+            <div class="letter">B</div>
+            <div class="letter">C</div>
+            <div class="letter">D</div>
+            <div class="letter">E</div>
+            <div class="letter">F</div>
+            <div class="letter">G</div>
+            <div class="letter">H</div>
+            <div class="letter">I</div>
+            <div class="letter">J</div>
+            <div class="letter">K</div>
+            <div class="letter">L</div>
+            <div class="letter">M</div>
+            <div class="letter">N</div>
+            <div class="letter">O</div>
+            <div class="letter">P</div>
+            <div class="letter">Q</div>
+            <div class="letter">R</div>
+            <div class="letter">S</div>
+            <div class="letter">T</div>
+            <div class="letter">U</div>
+            <div class="letter">V</div>
+            <div class="letter">X</div>
+            <div class="letter">Y</div>
+            <div class="letter">Z</div>
+            <div class="letter">Å</div>
+            <div class="letter">Ä</div>
+            <div class="letter">Ö</div>
+        </section>
+        <section class="midsection">
+            <h1>Hangman</h1>
+            <div class="end-panel"> 
+                <p class="text hidden">You Lose!</p>
+                <div class="button hidden">Try again</div>
+            </div>
+            <div class="guesses">
+            </div>
+        </section>
+        <section class="hangman">
+            <div class="hang-part leg-left"></div>
+            <div class="hang-part leg-right"></div>
+            <div class="hang-part main-body"></div>
+            <div class="hang-part arm-left"></div>
+            <div class="hang-part arm-right"></div>
+            <div class="hang-part head">
+                <div class="eyes">
+                    <div class="left-eye"></div>
+                    <div class="right-eye"></div>
+                </div>
+                <div class="mouth mouth-sad"></div>
+            </div>
+            <div class="hang-part noose"></div>
+            <div class="hang-part L3"></div>
+            <div class="hang-part L2"></div>
+            <div class="hang-part L"></div>
+            <div class="semi-circle"></div>
+        </section>
+        <section class="header">
+            <div class="sound">
+                <img src="./Images/soundon.png" width="40px" height="40px" class="sound-image">
+            </div>
+            <div class="exit">
+                <img src="./Images/exit.png" width="30px" height="30px" class="exit-image">
+            </div>
+        </section>
+    </div>
+</div>
+
+    <script src="index.js"></script>
+</body>
+</html>
